@@ -54,11 +54,11 @@ for title in htmlTitles:
         dirname = datalevel[12:datalevelstrlen-1]
         newdirname = dirname.replace('.', '_')  # 删除文件夹中 '.', 替换为 '-'
         curpath = os.getcwd() # 获取当前工作路径
-        
+
         if os.path.exists(newdirname) == False:
             os.mkdir(newdirname) # 创建新文件夹
             # os.chmod(curpath+newdirname, stat.S_IRWXG) # 更改文件夹权限
-    
+
     path = getDataPath(title)
     if path != None:
         pathstrlen = len(path)
@@ -66,8 +66,7 @@ for title in htmlTitles:
         newfileName = filename.replace('/', '_')
         fileurl = _url + filename
         newhtmlcontent = gethtmlcontent(fileurl)
-        
+
         # os.mknod(curpath+newdirname+newfileName)
         fo = open(curpath+'/'+newdirname+'/'+newfileName, "a")
         fo.write(newhtmlcontent)
-    
